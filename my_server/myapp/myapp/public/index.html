@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ECE 513 Heart Rate Monitor</title>
+        <link rel='shortcut icon' type='image/png' href='favicon.png'/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./stylesheets/index.css">
+
+
+    </head>
+    <body>
+        <header>
+
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">Navbar</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Login
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><button type="button" class="btn dropdown-item" data-toggle="modal" data-target="#userLoginModal">User Login</button></li>
+                          <li><button type="button" class="btn dropdown-item" data-toggle="modal" data-target="#physLoginModal">Physician Login</button></li>
+                        </ul>`
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Sign-up
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><button type="button" class="btn dropdown-item" data-toggle="modal" data-target="#userSignupModal">User Sign-up</button></li>
+                            <li><button type="button" class="btn dropdown-item" data-toggle="modal" data-target="#physSignupModal">Physician Sign-up</button></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+
+              <section class="modals">
+                <!-- Modal for User Login-->
+                <div class="modal fade" id="userLoginModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                <h4 class="modal-title">User Login</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                                    <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for Physician Login-->
+                <div class="modal fade" id="physLoginModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                <h4 class="modal-title">Physician Login</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                                    <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for User Signup-->
+                <div class="modal fade" id="userSignupModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                <h4 class="modal-title">User Sign-up</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                                    <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default">Create Account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for Physician Signup-->
+                <div class="modal fade" id="physSignupModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                <h4 class="modal-title">Physician Sign-up</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                                    <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default">Create Account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </section>
+        </header>
+
+        <!-- Footer -->
+        <footer class="footer">
+        </footer>
+
+        <script src="./javascripts/index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </body>
+
+</html>
