@@ -1,4 +1,4 @@
-const db = require("../db");
+/*const db = require("../db");
 
 // Create a model from the schema
 var Recording = db.model("Recording", {
@@ -7,3 +7,4 @@ var Recording = db.model("Recording", {
  });
 
 module.exports = Recording;
+*/
