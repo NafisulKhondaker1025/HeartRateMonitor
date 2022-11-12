@@ -1,8 +1,7 @@
-/*const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/lab6db", 
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/HeartRateMonitor", 
 { 
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 module.exports = mongoose;
-*/
