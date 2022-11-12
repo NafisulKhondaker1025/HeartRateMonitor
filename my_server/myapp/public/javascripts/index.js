@@ -13,7 +13,7 @@ $("#userCreateAccount").on("click", function () {
   if(validate("UserSignUp")) {
     var xhr = new XMLHttpRequest()
     xhr.addEventListener("load", function () {
-      alert(JSON.stringify(data.user))
+      alert(JSON.stringify(data))
     })
 
     xhr.responseType = "json"
@@ -22,10 +22,8 @@ $("#userCreateAccount").on("click", function () {
 
     var data = {
       "type" : "user",
-      "user" : {
-        "username" : $("#usernameUserSignUp").val(),
-        "password" : $("#passwordUserSignUp").val()
-      }
+      "username" : $("#usernameUserSignUp").val(),
+      "password" : $("#passwordUserSignUp").val()
     }
 
     xhr.open("POST", serverLink + "/signup");

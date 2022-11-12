@@ -18,6 +18,7 @@ var msg1 = {"Response" : "New Physician was created"}
 // }
 
 router.post('/', function(req, res) {
+    alert("posted on router")
     if (!(req.body.type) || !(req.body.username) || !(req.body.password)) {
         res.status(400).send(errorMsg1);
     }
