@@ -57,12 +57,13 @@
                             </div>
                             <div class="modal-body">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                                    <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+                                    <input type="text" id="usernameUserLogin" class="form-control" placeholder="Username" aria-label="Username">
+                                    <input type="password" id="passwordUserLogin" class="form-control" placeholder="Password" aria-label="Password">
                                 </div>
                             </div>
+                            <div id="formErrorsUserLogin" style="display: none;"></div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal('UserLogin')">Close</button>
                                 <button id="userLoginSubmit" type="submit" class="btn btn-default">Login</button>
                             </div>
                         </div>
@@ -79,12 +80,13 @@
                             </div>
                             <div class="modal-body">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                                    <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+                                    <input type="text" id="usernamePhysicianLogin" class="form-control" placeholder="Username" aria-label="Username">
+                                    <input type="password" id="passwordPhysicianLogin" class="form-control" placeholder="Password" aria-label="Password">
                                 </div>
                             </div>
+                            <div id="formErrorsPhysicianLogin" style="display: none;"></div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal('PhysicianLogin')">Close</button>
                                 <button id="physicianLoginSubmit" type="submit" class="btn btn-default">Login</button>
                             </div>
                         </div>
