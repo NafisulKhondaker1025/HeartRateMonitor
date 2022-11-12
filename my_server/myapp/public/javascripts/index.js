@@ -13,7 +13,7 @@ $("#userCreateAccount").on("click", function () {
   if(validate("UserSignUp")) {
     var xhr = new XMLHttpRequest()
     xhr.addEventListener("load", function () {
-      alert(JSON.stringify(data.user))
+      alert(JSON.stringify(data))
     })
 
     xhr.responseType = "json"
@@ -22,7 +22,7 @@ $("#userCreateAccount").on("click", function () {
 
     var data = {
       "type" : "user",
-      "user" : {
+      "user" :  {
         "username" : $("#usernameUserSignUp").val(),
         "password" : $("#passwordUserSignUp").val()
       }
@@ -37,7 +37,26 @@ $("#userCreateAccount").on("click", function () {
 //For physician account creation
 $("#physicianCreateAccount").on("click", function () {
   if(validate("PhysicianSignUp")) {
-    
+    var xhr = new XMLHttpRequest()
+    xhr.addEventListener("load", function () {
+      alert(JSON.stringify(data))
+    })
+
+    xhr.responseType = "json"
+
+    var serverLink = "http://localhost:3000"
+
+    var data = {
+      "type" : "physician",
+      "physician" :  {
+        "username" : $("#usernamePhysicianSignUp").val(),
+        "password" : $("#passwordPhysicianSignUp").val()
+      }
+    }
+
+    xhr.open("POST", serverLink + "/signup");
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send(JSON.stringify(data));
   }
 })
 
