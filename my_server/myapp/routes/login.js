@@ -22,7 +22,7 @@ router.post('/', async function(req, res) {
         res.status(400).send(errorMsg1);
     }
     else if (req.body.type === 'user') {
-        if (req.body.user.username != '' || req.body.user.password != '') {
+        if (req.body.user.username != '' || req.body.user.password != '') { 
             const user = await User.findOne({username: req.body.user.username})
             if(!user) {
                 res.status(400).send(errorMsg2);
