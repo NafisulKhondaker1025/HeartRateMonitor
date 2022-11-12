@@ -10,12 +10,35 @@ $("#physicianLoginSubmit").on("click", function () {
 
 //For user account creation
 $("#userCreateAccount").on("click", function () {
-  validate("UserSignUp")
+  if(validate("UserSignUp")) {
+    var xhr = new XMLHttpRequest()
+    xhr.addEventListener("load", function () {
+      alert(JSON.stringify(data.user))
+    })
+
+    xhr.responseType = "json"
+
+    var serverLink = "http://localhost:3000"
+
+    var data = {
+      "type" : "user",
+      "user" : {
+        "username" : $("#usernameUserSignUp").val(),
+        "password" : $("#passwordUserSignUp").val()
+      }
+    }
+
+    xhr.open("POST", serverLink + "/signup");
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send(JSON.stringify(data));
+  }
 })
 
 //For physician account creation
 $("#physicianCreateAccount").on("click", function () {
-  validate("PhysicianSignUp")
+  if(validate("PhysicianSignUp")) {
+    
+  }
 })
 
 //For new account validation
@@ -78,6 +101,7 @@ function validate(type) {
       errors.style.display = 'none';
       password.style.border = passwordBorder;
   }
+  return(formValid)
 }
 
 function closeModal(type) {
