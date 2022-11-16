@@ -24,6 +24,7 @@ router.post('/', async function(req, res) {
         res.status(400).send(errorMsg1);
     }
     else if (req.body.type === 'user') {
+        console.log(req);
         if (req.body.user.username != '' || req.body.user.password != '') {
             let users = await User.find({username: req.body.user.username});
             if (users.length == 0) {
