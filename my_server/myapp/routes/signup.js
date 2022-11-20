@@ -50,7 +50,7 @@ router.post('/', async function(req, res) {
         }
     }
     else if (req.body.type === 'physician') {
-        if (req.body.physician.username != '' || req.body.physician.password != '') {
+        if (req.body.physician.username != '' && req.body.physician.password != '') {
             let physicians = await Physician.find({username: req.body.physician.username});
             if (physicians.length == 0) {
                 const hash = bcrypt.hashSync(req.body.physician.password, 10);
