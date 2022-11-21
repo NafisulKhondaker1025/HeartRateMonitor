@@ -22,7 +22,7 @@ router.post('/', async function(req, res) {
         res.status(400).send(errorMsg1);
     }
     else if (req.body.type === 'user') {
-        if (req.body.user.username != '' || req.body.user.password != '') { 
+        if (req.body.user.username != '' && req.body.user.password != '') { 
             const user = await User.findOne({username: req.body.user.username})
             if(!user) {
                 res.status(400).send(errorMsg2);
@@ -42,7 +42,7 @@ router.post('/', async function(req, res) {
         }
     }
     else if (req.body.type === 'physician') {
-        if (req.body.physician.username != '' || req.body.physician.password != '') {
+        if (req.body.physician.username != '' && req.body.physician.password != '') {
             const physician = await Physician.findOne({username: req.body.physician.username})
             if(!physician) {
                 res.status(400).send(errorMsg2);
