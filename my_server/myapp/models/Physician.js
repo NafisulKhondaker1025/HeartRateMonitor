@@ -1,7 +1,7 @@
 const db = require("../db");
 
 // Create a model from the schema
-var User = db.model("Physician", {
+var Physician = db.model("Physician", {
     username:  {type: String},
     password:  {type: String},
     profileFields: {
@@ -14,4 +14,4 @@ var User = db.model("Physician", {
     }
  });
 
-module.exports = User;
+module.exports = Physician;
