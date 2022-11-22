@@ -3,6 +3,7 @@ $("#userLoginSubmit").on("click", function () {
   var xhr = new XMLHttpRequest()
   xhr.addEventListener("load", function () {
     alert(JSON.stringify(xhr.response))
+    localStorage.setItem("token", xhr.response.token)
   })
 
   xhr.responseType = "json"
@@ -26,7 +27,10 @@ $("#userLoginSubmit").on("click", function () {
 $("#physicianLoginSubmit").on("click", function () {
   var xhr = new XMLHttpRequest()
   xhr.addEventListener("load", function () {
-    alert(JSON.stringify(xhr.response))
+    if(xhr.status == 200) {
+      localStorage.setItem("token", xhr.response.token)
+      window.location.replace("physician.html")
+    }
   })
 
   xhr.responseType = "json"
@@ -52,6 +56,7 @@ $("#userCreateAccount").on("click", function () {
     var xhr = new XMLHttpRequest()
     xhr.addEventListener("load", function () {
       alert(JSON.stringify(xhr.response))
+      localStorage.setItem("token", xhr.response.token)
     })
 
     xhr.responseType = "json"
@@ -78,6 +83,8 @@ $("#physicianCreateAccount").on("click", function () {
     var xhr = new XMLHttpRequest()
     xhr.addEventListener("load", function () {
       alert(JSON.stringify(xhr.response))
+      localStorage.setItem("token", xhr.response.token)
+      window.location.replace("physician.html")
     })
 
     xhr.responseType = "json"
@@ -171,3 +178,30 @@ function closeModal(type) {
     password.style.border = '1px solid #ccc'
     errors.innerHTML = ''
 }
+
+/*function openHomePage(type) {
+  console.log('im here')
+  if (type == 'physician') {
+    var xhr = new XMLHttpRequest()
+
+    xhr.responseType = "document"
+
+    var serverLink = "http://localhost:3000"
+
+    var data = {
+      "type" : "physician",
+      "token" : localStorage.getItem("token")
+    }
+
+    xhr.open("POST", serverLink + "/homePage");
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send(JSON.stringify(data));
+
+    location.replace = serverLink + "/homePage"
+
+  }
+
+  else if (type == 'user') {
+
+  }
+}*/

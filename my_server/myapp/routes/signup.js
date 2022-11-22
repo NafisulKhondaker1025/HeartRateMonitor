@@ -1,5 +1,6 @@
 const express = require('express');
 const bcrypt = require("bcryptjs");
+const jwt = require("jwt-simple")
 const router = express.Router();
 const User = require('../models/User');
 const Physician = require('../models/Physician');
@@ -9,6 +10,7 @@ const errorMsg3 = {'Error' : 'Signup Failed! Could not save to database.'};
 const errorMsg4 = {'Error' : 'Signup Failed! Username already exists.'};
 const msg = {"Success" : "New User was created"}
 const msg1 = {"Success" : "New Physician was created"}
+const secret = "topSecret"
 
 // JUST FOR REFERENCE
 // req.body {
@@ -37,7 +39,8 @@ router.post('/', async function(req, res) {
                         res.status(400).send(errorMsg3);
                     }
                     else {
-                        res.status(200).send(msg);
+                        const token = jwt.encode({username: user.username}, secret)
+                        res.json({token : token})
                     }
                 })
             }
@@ -56,14 +59,23 @@ router.post('/', async function(req, res) {
                 const hash = bcrypt.hashSync(req.body.physician.password, 10);
                 const physician = new Physician({
                     username : req.body.physician.username,
-                    password : hash
+                    password : hash,
+                    profileFields: {
+                        fullName: '',
+                        designation: '',
+                        email: '',
+                        phone: '',
+                        institution: '',
+                        address: ''
+                    }
                 });
                 physician.save(function(err, physician) {
                     if (err) {
                         res.status(400).send(errorMsg3);
                     }
                     else {
-                        res.status(200).send(msg1);
+                        const token = jwt.encode({username: physician.username}, secret)
+                        res.json({token : token})
                     }
                 })
             }
