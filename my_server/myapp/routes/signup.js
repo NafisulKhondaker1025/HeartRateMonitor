@@ -32,7 +32,15 @@ router.post('/', async function(req, res) {
                 const hash = bcrypt.hashSync(req.body.user.password, 10);
                 const user = new User({
                     username : req.body.user.username,
-                    password : hash
+                    password : hash,
+                    profileFields: {
+                        fullName: '',
+                        email: '',
+                        phone: '',
+                        address: '',
+                        deviceID: '',
+                    },
+                    apiKey: ''
                 });
                 user.save(function(err, user) {
                     if (err) {
