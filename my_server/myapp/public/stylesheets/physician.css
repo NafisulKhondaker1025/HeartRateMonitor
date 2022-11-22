@@ -27,12 +27,16 @@ html {
 }
 
 .profile-header-btns button {
-    width: 70%;
+    width: 80%;
 }
 
 .profile-card {
     border: none;
     background-color: rgba(0, 0, 0, 0);
+}
+
+.col-sm-9 input {
+    width: 100%;
 }
 
 @media (min-width: 992px) {

@@ -3,6 +3,7 @@ $("#userLoginSubmit").on("click", function () {
   var xhr = new XMLHttpRequest()
   xhr.addEventListener("load", function () {
     alert(JSON.stringify(xhr.response))
+    localStorage.setItem("token", xhr.response.token)
   })
 
   xhr.responseType = "json"
@@ -26,7 +27,6 @@ $("#userLoginSubmit").on("click", function () {
 $("#physicianLoginSubmit").on("click", function () {
   var xhr = new XMLHttpRequest()
   xhr.addEventListener("load", function () {
-    alert(JSON.stringify(xhr.response))
     if(xhr.status == 200) {
       localStorage.setItem("token", xhr.response.token)
       window.location.replace("physician.html")
@@ -56,6 +56,7 @@ $("#userCreateAccount").on("click", function () {
     var xhr = new XMLHttpRequest()
     xhr.addEventListener("load", function () {
       alert(JSON.stringify(xhr.response))
+      localStorage.setItem("token", xhr.response.token)
     })
 
     xhr.responseType = "json"
@@ -82,6 +83,8 @@ $("#physicianCreateAccount").on("click", function () {
     var xhr = new XMLHttpRequest()
     xhr.addEventListener("load", function () {
       alert(JSON.stringify(xhr.response))
+      localStorage.setItem("token", xhr.response.token)
+      window.location.replace("physician.html")
     })
 
     xhr.responseType = "json"
