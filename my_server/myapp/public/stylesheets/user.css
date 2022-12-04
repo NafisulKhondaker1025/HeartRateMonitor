@@ -15,7 +15,11 @@ html {
 /* Added Styles */
 /* -------------------------------- */
 
-.phys-view {
+.sidebar-body {
+    height: 100%;
+}
+
+.container {
     background-image: url('../images/background-phys.jpeg');
     /* -webkit-backdrop-filter: brightness(0.3);
     backdrop-filter: brightness(0.3); */

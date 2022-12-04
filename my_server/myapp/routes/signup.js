@@ -38,9 +38,11 @@ router.post('/', async function(req, res) {
                         email: '',
                         phone: '',
                         address: '',
-                        deviceID: '',
                     },
-                    apiKey: ''
+                    deviceID: '',
+                    apiKey: '',
+                    heartRate: [],
+                    spo2: []
                 });
                 user.save(function(err, user) {
                     if (err) {

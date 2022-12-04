@@ -11,7 +11,9 @@ var User = db.model("User", {
         address: {type: String},
     },
     deviceID: {type: String},
-    apiKey: {type: String}
+    apiKey: {type: String},
+    heartRate: [],
+    spo2: []
  });
 
 module.exports = User;

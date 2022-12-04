@@ -1,13 +1,15 @@
 void setup() {
   Serial.begin(9600);
-  String type = "user";
-  String username = "kg";
-  String password = "123456789aA";
-  String data = String::format("{ \"type\": \"%s\", \"username\": \"%s\", \"password\": \"%s\" }", type.c_str(), username.c_str(), password.c_str());
+  String heartRate = "85.3256";
+  String spo2 = "85.3256";
+  String timeStamp = String(Time.now());
+  Serial.print(timeStamp);
+
+  String data = String::format("{ \"heartRate\": \"%s\", \"spo2\": \"%s\", \"timeStamp\": \"%s\" }", heartRate.c_str(), spo2.c_str(), timeStamp.c_str());
   // Trigger the integration
-  Particle.publish("TestUserSignup", data, PRIVATE);
+  Particle.publish("SensorData", data, PRIVATE);
   // Wait 60 seconds
-  Serial.println("Published");
+  Serial.println("\nPublished");
 }
 
 void loop() {
