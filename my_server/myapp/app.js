@@ -8,7 +8,10 @@ var indexRouter = require('./routes/index');
 var signupRouter = require('./routes/signup');
 var loginRouter = require('./routes/login');
 var dataRouter = require('./routes/data');
-var editRouter = require('./routes/edit')
+var editRouter = require('./routes/edit');
+var deviceIDRouter = require('./routes/deviceID');
+var sensorDataRouter = require('./routes/sensorData');
+var userDashboardDataRouter = require('./routes/dashboardData');
 
 var app = express();
 
@@ -43,6 +46,10 @@ app.use('/signup', signupRouter);
 app.use('/physician/data', dataRouter);
 app.use('/user/data', dataRouter);
 app.use('/physician/edit', editRouter);
+app.use('/user/edit', editRouter);
+app.use('/user/deviceID', deviceIDRouter);
+app.use('/user/sensorData', sensorDataRouter);
+app.use('/user/dashboardData', userDashboardDataRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

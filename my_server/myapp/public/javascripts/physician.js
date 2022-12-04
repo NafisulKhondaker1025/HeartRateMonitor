@@ -46,12 +46,15 @@ $("#saveProfileInfo").on("click", function() {
         $(this).attr('readonly', true)
     })    
     txData = {
-        fullName: $("#fullName").val(),
-        designation: $("#designation").val(),
-        email: $("#email").val(),
-        phone: $("#phone").val(),
-        institution: $("#institution").val(),
-        address: $("#address").val()
+        "type" : "physician",
+        "profileFields" : JSON.stringify({
+            "fullName" : $("#fullName").val(),
+            "designation" : $("#designation").val(),
+            "email" : $("#email").val(),
+            "phone" : $("#phone").val(),
+            "institution" : $("#institution").val(),
+            "address" : $("#address").val()
+        })
     }
     $.ajax({
         url: '/physician/edit',
@@ -66,4 +69,9 @@ $("#saveProfileInfo").on("click", function() {
     .fail(function (jqXHR, textStatus, errorThrown) {
         alert(errorThrown)
     })
+})
+
+$("#logout-btn").on("click", function() {
+    localStorage.removeItem("token")
+    window.location.replace("index.html")
 })

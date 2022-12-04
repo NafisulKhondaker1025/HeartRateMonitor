@@ -2,15 +2,18 @@
 $("#userLoginSubmit").on("click", function () {
   var xhr = new XMLHttpRequest()
   xhr.addEventListener("load", function () {
-    alert(JSON.stringify(xhr.response))
-    localStorage.setItem("token", xhr.response.token)
+    if(xhr.status == 200) {
+      alert(JSON.stringify(xhr.response))
+      localStorage.setItem("token", xhr.response.token) //Save token to local storage
+      window.location.replace("user.html")
+    }
   })
 
   xhr.responseType = "json"
 
   var serverLink = "http://localhost:3000"
 
-  var data = {
+  var data = { //Data object sent to server for login validation
     "type" : "user",
     "user" :  {
       "username" : $("#usernameUserLogin").val(),
@@ -28,7 +31,7 @@ $("#physicianLoginSubmit").on("click", function () {
   var xhr = new XMLHttpRequest()
   xhr.addEventListener("load", function () {
     if(xhr.status == 200) {
-      localStorage.setItem("token", xhr.response.token)
+      localStorage.setItem("token", xhr.response.token) //Save token to local storage
       window.location.replace("physician.html")
     }
   })
@@ -37,7 +40,7 @@ $("#physicianLoginSubmit").on("click", function () {
 
   var serverLink = "http://localhost:3000"
 
-  var data = {
+  var data = { //Data object sent to server for login validation
     "type" : "physician",
     "physician" :  {
       "username" : $("#usernamePhysicianLogin").val(),
@@ -55,15 +58,18 @@ $("#userCreateAccount").on("click", function () {
   if(validate("UserSignUp")) {
     var xhr = new XMLHttpRequest()
     xhr.addEventListener("load", function () {
-      alert(JSON.stringify(xhr.response))
-      localStorage.setItem("token", xhr.response.token)
+      if(xhr.status == 200) {
+        alert(JSON.stringify(xhr.response))
+        localStorage.setItem("token", xhr.response.token) //Save token to local storage
+        window.location.replace("user.html")
+      }
     })
 
     xhr.responseType = "json"
 
     var serverLink = "http://localhost:3000"
 
-    var data = {
+    var data = { //Data object sent to server for account creation
       "type" : "user",
       "user" :  {
         "username" : $("#usernameUserSignUp").val(),
@@ -82,16 +88,18 @@ $("#physicianCreateAccount").on("click", function () {
   if(validate("PhysicianSignUp")) {
     var xhr = new XMLHttpRequest()
     xhr.addEventListener("load", function () {
-      alert(JSON.stringify(xhr.response))
-      localStorage.setItem("token", xhr.response.token)
-      window.location.replace("physician.html")
+      if(xhr.status == 200) {
+        alert(JSON.stringify(xhr.response))
+        localStorage.setItem("token", xhr.response.token) //Save token to local storage
+        window.location.replace("physician.html")
+      }
     })
 
     xhr.responseType = "json"
 
     var serverLink = "http://localhost:3000"
 
-    var data = {
+    var data = { //Data object sent to server for account creation
       "type" : "physician",
       "physician" :  {
         "username" : $("#usernamePhysicianSignUp").val(),
@@ -116,7 +124,7 @@ function validate(type) {
   let usernameBorder = '1px solid #ccc';
   let passwordBorder = '1px solid #ccc';
 
-  if (username.value == '') {
+  if (username.value == '') { //If username field is left blank
       formValid = false;
       errorString += 'Missing full name.\t';
       username.style.border = '2px solid red';
@@ -124,28 +132,28 @@ function validate(type) {
   else {
       username.style.border = usernameBorder;
   }
-  if (password.value.length < 10 || password.value.length > 20) {
+  if (password.value.length < 10 || password.value.length > 20) { //If password is less than 10 chars or more than 20 chars
       formValid = false;
       errorString += 'Password must be between 10 and 20 characters.\t';
       password.style.border = '2px solid red';
   }
-  if (password.value.toUpperCase() == password.value) {
+  if (password.value.toUpperCase() == password.value) { //If there are no lowercase letters
       formValid = false;
       errorString += 'Password must contain at least one lowercase character.\t';
       password.style.border = '2px solid red';
   }
-  if (password.value.toLowerCase() == password.value) {
+  if (password.value.toLowerCase() == password.value) { //If there are no uppercase letters
       formValid = false;
       errorString += 'Password must contain at least one uppercase character.\t';
       password.style.border = '2px solid red';
   }
   re = /\d/;
-  if (re.exec(password.value) == null) {
+  if (re.exec(password.value) == null) { //If password has no digits
       formValid = false;
       errorString += 'Password must contain at least one digit.\t';
       password.style.border = '2px solid red';
   }
-  if (!formValid) {
+  if (!formValid) { //If form has any errors
       let parse = errorString.split('\t');
       let container = document.createElement('ul');
       errors.innerHTML = '';
