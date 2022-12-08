@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var https = require('https');
+var fs = require('fs')
 
 var indexRouter = require('./routes/index');
 var signupRouter = require('./routes/signup');
@@ -12,6 +14,9 @@ var editRouter = require('./routes/edit');
 var deviceIDRouter = require('./routes/deviceID');
 var sensorDataRouter = require('./routes/sensorData');
 var userDashboardDataRouter = require('./routes/dashboardData');
+var getAllRouter = require('./routes/getAll');
+var assignPhysicianRouter = require('./routes/assignPhysician');
+var setTimeRouter = require('./routes/setTime');
 
 var app = express();
 
@@ -50,6 +55,10 @@ app.use('/user/edit', editRouter);
 app.use('/user/deviceID', deviceIDRouter);
 app.use('/user/sensorData', sensorDataRouter);
 app.use('/user/dashboardData', userDashboardDataRouter);
+app.use('/physician/all', getAllRouter);
+app.use('/user/all', getAllRouter);
+app.use('/physician/select', assignPhysicianRouter);
+app.use('/time/set', setTimeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -68,3 +77,10 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+const sslServer = https.createServer({
+  key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
+  cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem')),
+}, app);
+
+sslServer.listen(3969, () => console.log('Secure server on port 3969'))

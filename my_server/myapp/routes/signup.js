@@ -42,7 +42,22 @@ router.post('/', async function(req, res) {
                     deviceID: '',
                     apiKey: '',
                     heartRate: [],
-                    spo2: []
+                    spo2: [],
+                    min: {
+                        heartRate: 0,
+                        spo2: 0
+                    },
+                    max: {
+                        heartRate: 0,
+                        spo2: 0
+                    },
+                    avg: {
+                        heartRate: 0,
+                        spo2: 0
+                    },
+                    startTime: 6,
+                    endTime: 22,
+                    timeInterval: 10
                 });
                 user.save(function(err, user) {
                     if (err) {

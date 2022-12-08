@@ -1,0 +1,89 @@
+<div class="container py-3">    
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="card mb-4 profile-card">
+          <div class="card-body text-center">
+              <div class="row">
+                  <div class="col-lg-4">
+                      <img src="./images/profile-phys.jpeg" alt="avatar" class="img-fluid profile-img" style="width: 250px;">
+                  </div>
+                  <div class="col-lg-4 profile-header-btns">
+                      <div>
+                          <button type="button" class="btn btn-outline-light">Edit Login Information</button>
+                      </div>
+                      <div class edit-btns>
+                        <button type="button" class="btn btn-outline-light edit-btn" id="editProfileInfo">
+                          Edit Profile Information
+                        </button>
+                        <button type="button" class="btn btn-outline-light edit-btn" style="display: none" id="saveProfileInfo">
+                          Save Profile Information
+                        </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                <input id="fullName" class="text-muted mb-0" readonly="true">
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Designation</p>
+              </div>
+              <div class="col-sm-9">
+                <input id="designation" class="text-muted mb-0" readonly="true">
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <input id="email" class="text-muted mb-0" readonly="true">
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9">
+                <input id="phone" class="text-muted mb-0" readonly="true">
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Institution</p>
+              </div>
+              <div class="col-sm-9">
+                <input id="institution" class="text-muted mb-0" readonly="true">
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <input id="address" class="text-muted mb-0" readonly="true">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./javascripts/physicianProfile.js"></script>
