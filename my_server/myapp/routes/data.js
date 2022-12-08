@@ -39,7 +39,24 @@ router.get('/', async function(req, res) {
                 else {
                     const decoded = jwt.decode(req.headers["x-auth"], secret)
                     const user = await User.findOne({username: decoded.username})
-                    res.status(200).send(user)
+                    if(user.physician && user.physician != "none") {
+                        const physician = await Physician.findById(user.physician)
+                        var physData = {
+                            name: physician.profileFields.fullName,
+                            email: physician.profileFields.email,
+                            phone: physician.profileFields.phone
+                        }
+
+                        res.status(200).send({
+                            user: user,
+                            physData: physData
+                        })
+                    }
+                    else {
+                        res.status(200).send({
+                            user: user
+                        })
+                    } 
                 }
             }
             catch (ex) {
