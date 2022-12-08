@@ -5,11 +5,37 @@
           <div class="card-body text-center">
               <div class="row">
                   <div class="col-lg-4">
-                      <img src="./images/profile-phys.jpeg" alt="avatar" class="img-fluid profile-img" style="width: 250px;">
+                      <div class="card" style="border-radius: 15px;" id="physi">
+                        <div class="card-body p-4">
+                          <div class="d-flex text-black">
+                              <div class="flex-grow-1 ms-3">
+                                <div>  
+                                    <h5 class="mb-1"></h5>
+                                    <p class="mb-2 pb-1" style="color: #2b2a2a;" id="phys-title">No Physician Selected</p>
+                                </div>
+                                <div class="rounded-3 p-2 mb-2"
+                                    style="background-color: #efefef;" id="phys-info">
+                                    <div>
+                                    <p class="small text-muted mb-1">Name</p>
+                                    <p class="mb-0" id="phys-name"></p>
+                                    </div>
+                                    <div class="px-3">
+                                    <p class="small text-muted mb-1">Email</p>
+                                    <p class="mb-0" id="phys-email"></p>
+                                    </div>
+                                    <div>
+                                    <p class="small text-muted mb-1">Phone Number</p>
+                                    <p class="mb-0" id="phys-phone"></p>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
                   </div>
                   <div class="col-lg-4 profile-header-btns">
-                      <div>
-                          <button type="button" class="btn btn-outline-light">Edit Profile Picture</button>
+                      <div id="remove-phys-div">
+                          <button type="button" class="btn btn-outline-light" id="remove-phys-btn">Remove Physician</button>
                       </div>
                       <div>
                           <button type="button" class="btn btn-outline-light">Edit Login Information</button>

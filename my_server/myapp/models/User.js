@@ -13,7 +13,23 @@ var User = db.model("User", {
     deviceID: {type: String},
     apiKey: {type: String},
     heartRate: [],
-    spo2: []
+    spo2: [],
+    physician: {type: String},
+    min: {
+        heartRate: {type: Number},
+        spo2: {type: Number}
+    },
+    max: {
+        heartRate: {type: Number},
+        spo2: {type: Number}
+    },
+    avg: {
+        heartRate: {type: Number},
+        spo2: {type: Number}
+    },
+    startTime: {type: Number},
+    endTime: {type: Number},
+    timeInterval: {type: Number}
  });
 
 module.exports = User;

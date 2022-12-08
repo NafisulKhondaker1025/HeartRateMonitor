@@ -14,13 +14,27 @@
           dataType: 'json'
         })
         .done(function (data, textStatus, jqXHR) {
-          $("#fullName").attr("value", data.profileFields.fullName)
-          $("#email").attr("value", data.profileFields.email)
-          $("#phone").attr("value", data.profileFields.phone)
-          $("#address").attr("value", data.profileFields.address)
-          $("#deviceID").attr("value", data.deviceID)
-          $("#apiKey").attr("value", data.apiKey)
-          $("body").css("display", "block")
+            if (data.physData) {
+                console.log(data.physData)
+                $("#phys-title").html("Your Physician")
+                $("#phys-info").css("display", "flex") //figure out correct display format
+                $("#phys-name").html(data.physData.name)
+                $("#phys-email").html(data.physData.email)
+                $("#phys-phone").html(data.physData.phone)
+                $("#remove-phys-div").css("display", "block")
+            }
+            else {
+                $("#phys-title").html("No Physician Selected")
+                $("#phys-info").css("display", "none")
+                $("#remove-phys-div").css("display", "none")
+            }
+            $("#fullName").attr("value", data.user.profileFields.fullName)
+            $("#email").attr("value", data.user.profileFields.email)
+            $("#phone").attr("value", data.user.profileFields.phone)
+            $("#address").attr("value", data.user.profileFields.address)
+            $("#deviceID").attr("value", data.user.deviceID)
+            $("#apiKey").attr("value", data.user.apiKey)
+            $("body").css("display", "block")
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
           window.location.replace("index.html")
@@ -105,4 +119,31 @@ $("#saveDeviceID").on("click", function() {
     .fail(function (jqXHR, textStatus, errorThrown) {
         alert(errorThrown)
     }) 
+})
+
+$("#remove-phys-btn").on("click", function() {
+    if (!window.localStorage.getItem("token")) {
+        window.location.replace("index.html")
+    }
+    else {
+        txData = {
+            objID: "none"
+        }
+        $.ajax({
+            url: '/physician/select',
+            method: 'POST',
+            headers: {'x-auth' : window.localStorage.getItem("token")},
+            data: txData,
+            dataType: 'json'
+        })
+        .done(function (data, textStatus, jqXHR) {
+            alert("Physician Removed. You are no longer assigned to a physician")
+            $("#phys-title").html("No Physician Selected")
+            $("#phys-info").css("display", "none")
+            $("#remove-phys-div").css("display", "none")
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            window.location.replace("index.html")
+        })
+    }
 })
