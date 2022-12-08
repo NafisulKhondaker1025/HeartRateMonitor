@@ -15,6 +15,16 @@ html {
 /* Added Styles */
 /* -------------------------------- */
 
+.login-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#usernameEditLogin, #oldPasswordEditLogin, #newPasswordEditLogin {
+    width: 100%;
+}
+
 .sidebar-body {
     height: 100%;
 }

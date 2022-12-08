@@ -17,6 +17,7 @@ var userDashboardDataRouter = require('./routes/dashboardData');
 var getAllRouter = require('./routes/getAll');
 var assignPhysicianRouter = require('./routes/assignPhysician');
 var setTimeRouter = require('./routes/setTime');
+var editLoginRouter = require('./routes/editLogin')
 
 var app = express();
 
@@ -59,6 +60,7 @@ app.use('/physician/all', getAllRouter);
 app.use('/user/all', getAllRouter);
 app.use('/physician/select', assignPhysicianRouter);
 app.use('/time/set', setTimeRouter);
+app.use('/edit/login', editLoginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
